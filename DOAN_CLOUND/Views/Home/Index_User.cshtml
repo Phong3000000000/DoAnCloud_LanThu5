@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+@model IEnumerable<KhachHang>
+@using DOAN_CLOUND.Models
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <h3>DANH SÁCH NGƯỜI DÙNG</h3>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Rank</th>
+                        <th>Manager ID</th>
+                        <th>Birth</th>
+                        <th>Render</th>
+                        <th>CMND</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Adress</th>
+                        <th>Phone</th>
+                        <th>
+                            Option
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td style="white-space: nowrap">@item.HOTEN</td>
+                            <td style="white-space: nowrap">@item.CHUCVU</td>
+                            <td style="white-space: nowrap">@item.MANV_QUANLY</td>
+                            <td style="white-space: nowrap">@item.NGAYSINH</td>
+                            <td style="white-space: nowrap">@item.GIOITINH</td>
+                            <td style="white-space: nowrap">@item.CMND</td>
+                            <td style="white-space: nowrap">@item.EMAIL</td>
+                            <td style="white-space: nowrap">@item.ROLE</td>
+                            <td style="white-space: nowrap">@item.DIACHI</td>
+                            <td style="white-space: nowrap">@item.SODT</td>
+                            <td style="white-space: nowrap">
+                                @Html.ActionLink("Details", "Details_User", new { id = item.Id }) |
+                                @Html.ActionLink("Edit", "Edit_User", new { id = item.Id }) |
+                                @Html.ActionLink("Delete", "Delete_User", new { id = item.Id })
+
+                            </td>
+                        </tr>
+                    }
+                    <tr>
+                        <td colspan="13">
+                            @Html.ActionLink("Create New", "Create_User", new { @class = "btn btn-primary" }, new { @class = "btn btn-info" })
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,58 @@
+﻿<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js"></script>
+@{
+    ViewBag.Title = "DangNhap";
+
+}
+@model DOAN_CLOUND.Models.KhachHang
+<div class="table-responsive" style="position: relative; height: 100vh">
+    <div class="form-horizontal" style="width: 25%; margin: 20px auto; padding: 30px; box-shadow: 1px 1px 2px 2px #888888; border-radius: 10px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+
+        @using (Html.BeginForm())
+        {
+            <form>
+                <div class="form-group" style="text-align:center">
+                    <h4>ĐĂNG NHẬP</h4>
+                </div>
+                <div class="form-group">
+                    <label>Full name</label>
+                    @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", placeholder = "Nhập họ tên" })
+                    @Html.ValidationMessageFor(x => x.UserName, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    @Html.TextBoxFor(x => x.Pass, new { @class = "form-control", placeholder = "Nhập password" })
+                    @Html.ValidationMessageFor(x => x.Pass, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group" style="display:flex; align-items:baseline">
+                    <input type="checkbox" style="margin-right:10px" />
+                    <p>Remember password?</p>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="form-control btn btn-primary btn-block" value="Đăng nhập" />
+                </div>
+                @{
+                    if (@ViewBag.kt == 0)
+                    {
+                        <div class="form-group" style="color:red">
+                            @Session["loi"]
+                        </div>
+                    }
+                    @*else
+                    {
+                        <div class="form-group text-primary" >
+                            @Session["thongbao"]
+                        </div>
+                    }*@
+                }
+            </form>
+        }
+    </div>
+
+
+</div>
+
+

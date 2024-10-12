@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Index_Products";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+@using DOAN_CLOUND.Models
+@model IEnumerable<Products>
+
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <h3>DANH SÁCH SẢN PHẨM</h3>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Tên Hàng</th>
+                        <th> Đơn Vị Tính</th>
+                        <th>Cate_Id</th>
+                        <th>Option</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.tenhang</td>
+                            <td>@item.dvt</td>
+                            <td>@item.cate_id</td>
+                            <td style="white-space: nowrap">
+                                    @Html.ActionLink("Details", "Details_Products", new { id = item.Id }) |
+                                    @Html.ActionLink("Edit", "Edit_Product", new { id = item.Id }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+
+                                </td>
+                        </tr>
+                    }
+                    <tr>
+                        <td colspan="4">
+                            @Html.ActionLink("Create New", "Create_Products", new { @class = "btn btn-primary" }, new { @class = "btn btn-info" })
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+

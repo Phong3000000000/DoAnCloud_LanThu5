@@ -7383,11 +7383,8 @@ h1, h2, h3, h4, h5,
     position: relative; }
     .ftco-navbar-light .navbar-nav > .nav-item.cart > a .icon {
       font-size: 20px;
-<<<<<<< Updated upstream
-      color: yellow;
-=======
-      color: greenyellow;
->>>>>>> Stashed changes
+      color: yellow;    
+
     }
     .ftco-navbar-light .navbar-nav > .nav-item.cart > a .bag {
       position: absolute;

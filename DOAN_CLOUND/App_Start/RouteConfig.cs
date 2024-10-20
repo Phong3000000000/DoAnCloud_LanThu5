@@ -17,13 +17,13 @@ namespace DOAN_CLOUND
             routes.MapRoute(
                 name: "WithCshtml",
                 url: "{controller}/{action}.cshtml/{id}",
-                defaults: new { controller = "Home", action = "Index_User", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "index", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index_User", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "index", id = UrlParameter.Optional }
             );
           
 
